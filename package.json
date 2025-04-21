@@ -1,0 +1,27 @@
+{
+  "name": "nft-mint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.6",
+    "@nomicfoundation/hardhat-ignition": "^0.15.11",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
+    "hardhat": "^2.23.0"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@thirdweb-dev/contracts": "^3.8.4",
+    "chai": "^4.4.1",
+    "dotenv": "^16.4.5"
+  }
+}
