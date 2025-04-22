@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFTVerse - NFT Minter</title>
+    <link rel="icon" href="./logo/nft.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .neubrutal {
+        box-shadow: 6px 6px 0 #000;
+        border: 2px solid #000;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+      }
+      input::file-selector-button {
+        background-color: #fdc5f5;
+        padding: 0.5rem 1rem;
+        border: 2px solid #000;
+        margin-right: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+      input::file-selector-button:hover {
+        background-color: #fbbf24;
+      }
+      #imagePreview {
+        display: none;
+        max-height: 200px;
+        margin-top: 1rem;
+        border: 2px solid #000;
+        box-shadow: 6px 6px 0 #000;
+        border-radius: 0.5rem;
+      }
+      .btn-hover {
+        transition: all 0.2s ease-in-out;
+      }
+      .btn-hover:hover {
+        transform: scale(1.05);
+      }
+      .btn-hover:active {
+        transform: scale(0.97);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-pink-100 text-black font-sans p-6 flex flex-col items-center justify-center min-h-screen"
+  >
+    <div class="container max-w-2xl mx-auto space-y-12">
+      <!-- Unified Container -->
+      <div class="bg-white rounded-xl p-8 neubrutal space-y-12">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-content text-center space-y-4">
+            <img
+              class="logo w-24 h-24 mx-auto"
+              src="./logo/nft.png"
+              alt="NFTVerse Logo"
+            />
+            <div
+              class="header-title text-5xl font-extrabold tracking-tight leading-tight text-pink-600"
+            >
+              NFTVerse
+            </div>
+            <div class="header-subtitle text-lg text-gray-700 font-medium">
+              Mint your own NFTs seamlessly on the blockchain.
+            </div>
+            <button
+              class="connect-wallet-btn mx-auto text-center bg-cyan-300 hover:bg-cyan-400 text-black px-6 py-3 rounded-lg flex items-center justify-center space-x-3 neubrutal btn-hover"
+              id="connectWalletBtn"
+            >
+              <img
+                class="metamask-icon w-7 h-7"
+                src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
+                alt="MetaMask Logo"
+              />
+              <span class="font-semibold">Connect Wallet</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <section class="mint-section space-y-6">
+            <form id="mintForm" class="space-y-4">
+              <input
+                type="text"
+                placeholder="NFT Name"
+                required
+                class="w-full p-3 rounded-lg border-2 border-black neubrutal bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-pink-300"
+              />
+              <input
+                type="text"
+                placeholder="NFT Description"
+                required
+                class="w-full p-3 rounded-lg border-2 border-black neubrutal bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-pink-300"
+              />
+              <input
+                type="file"
+                accept="image/*"
+                required
+                id="imageInput"
+                class="w-full p-3 rounded-lg border-2 border-black neubrutal bg-yellow-50 cursor-pointer"
+              />
+              <img id="imagePreview" alt="NFT Preview" />
+              <button
+                type="submit"
+                class="bg-green-300 hover:bg-green-400 px-6 py-3 rounded-lg font-semibold text-black neubrutal w-full btn-hover"
+              >
+                Mint NFT 🚀
+              </button>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Image Preview Script -->
+    <script>
+      const imageInput = document.getElementById("imageInput");
+      const imagePreview = document.getElementById("imagePreview");
+
+      imageInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          imagePreview.style.display = "block";
+          reader.addEventListener("load", function () {
+            imagePreview.setAttribute("src", this.result);
+          });
+          reader.readAsDataURL(file);
+        } else {
+          imagePreview.style.display = "none";
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.10.0/dist/web3.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
