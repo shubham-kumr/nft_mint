@@ -1,4 +1,4 @@
-# 🚀 NFT Mint
+# NFTVerse - NFT Mint
 
 ## 🛠️ Tech Stack
 
@@ -16,8 +16,8 @@
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/ShubhankarBanerjee87/BlockchainBootcamp2025.git
-cd BlockchainBootcamp2025
+git clone https://github.com/shubham-kumr/nftverse.git
+cd nftverse
 ```
 
 ### 2. Install Dependencies
@@ -46,24 +46,6 @@ npx hardhat compile
 ```bash
 npx hardhat run scripts/deploy.js --network [network-name]
 ```
-
----
-
-## 🧠 Your Tasks
-
-### 📄 Smart Contract (Solidity)
-
-- [ ] Complete the `mintNFT()` function in `contracts/NFTAttendance.sol`
-- [ ] Deploy the contract to **Polygon**
-
-### 🌐 Frontend (HTML/JS)
-
-- [ ] Connect MetaMask to the frontend
-- [ ] Upload your NFT image to IPFS
-- [ ] Generate metadata and upload it to IPFS
-- [ ] Call `mintNFT()` using **Ethers.js** from the frontend
-
----
 
 ---
 
@@ -114,25 +96,6 @@ Create a `metadata.json` file in your project (or generate it dynamically in you
 > `https://opensea.io/assets//<your_contract_address>/<token_id>`
 
 ---
-
-## 👨‍🎓 Completion Badge
-
-Each NFT you mint is proof of:
-
-✅ Your participation in this BootCamp  
-✅ Your ability to write smart contracts  
-✅ Your confidence with full-stack Web3 development 🚀
-
----
-
-## ✨ Credits
-
-**Organized by:** 🎯 SHARP Innovation Foundation
-
-**BootCamp Trainers:**
-
-- 👨‍🏫 **Rohit Gupta** – Smart Contracts  
-- 👨‍💻 **Shubhankar Banerjee** – Frontend + Integration
 
 ---
 
