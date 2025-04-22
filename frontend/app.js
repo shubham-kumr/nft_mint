@@ -9,16 +9,33 @@ let userAccount;
 // Connect Wallet
 connectWalletBtn.addEventListener("click", async () => {
   if (typeof window.ethereum !== "undefined") {
-    const accounts = await ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    userAccount = accounts[0];
-    connectWalletBtn.textContent = "Wallet Connected";
-    connectWalletBtn.disabled = true;
+    try {
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      userAccount = accounts[0];
+
+      // Shorten wallet address (e.g., 0x123...4567)
+      const shortAddress = `${userAccount.slice(0, 6)}...${userAccount.slice(-4)}`;
+
+      // Set button content with MetaMask icon and wallet address
+      connectWalletBtn.innerHTML = `
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" 
+             alt="MetaMask" 
+             style="height: 28px; margin-right: 8px; vertical-align: middle;">
+        <span>${shortAddress}</span>
+      `;
+      connectWalletBtn.disabled = true;
+
+    } catch (error) {
+      console.error("Wallet connection failed:", error);
+      alert("Failed to connect wallet.");
+    }
   } else {
     alert("MetaMask is not installed!");
   }
 });
+
 
 // Handle Image Upload and Mint NFT
 mintForm.addEventListener("submit", async (e) => {
