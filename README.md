@@ -90,6 +90,11 @@ Create a `metadata.json` file in your project (or generate it dynamically in you
 
 ---
 
+## NFTVerse
+<img src="./screenshot/NFTVerse.png" />
+
+---
+
 ## 📸 Sample Output
 
 > Once minted successfully, your NFT will appear on OpenSea  like this:
